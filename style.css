@@ -1,0 +1,233 @@
+/* DOCUMENTAÇÃO
+
+INTERFACE
+- O design da interface foi devidamente respeitada.
+- Fontes utilizadas foram importadas do Google Fonts.
+- Todos os detalhes referentes a responsividade foram adequadamente tratados via media queries.
+- Foi utilizado variáveis para facilitar possíveis alterações de cores e fontes.
+- Foi utilizado pseudo-elemento para retirar as setas do input bem como para criar o elemento de linha abaixo do título do jogo.
+
+*/
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+/* Global Config */
+:root{
+    --branco: #fff;
+    --gelo: #eee;
+    --laranja: #EF6C00;
+    --laranja-escuro: #C0661C;
+    --verde: #32BF00;
+    --cinza: #CFCFCF;
+    --cinza-medio: #9E9E9E;
+    --cinza-escuro: #434854;
+    --error: #CC3300;
+
+    --fonte-principal: 'Montserrat', sans-serif;
+    --fonte-auxiliar: 'Roboto', sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: var(--fonte-auxiliar);
+}
+
+/* Code */
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(0deg, var(--branco) 0%, var(--gelo) 100%);
+}
+
+.container{
+    width: 100vw;
+    height: 588px;
+}
+
+.container header h1{
+    font-family: var(--fonte-principal);
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -1px;
+    color: var(--laranja);
+    margin-top: 45px;
+}
+
+.container header h1::after{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 255px;
+    background-color: var(--cinza);
+    margin: 13px auto 0 auto;
+}
+
+.contents{
+    margin: 0 auto;
+}
+
+.message{
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    color: var(--laranja);
+    text-align: center;
+    margin-top: 51px;
+    min-height: 20px;
+}
+
+.message-hit{
+    color: var(--verde);
+}
+
+.message-error{
+    color: var(--error);
+}
+
+.display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display svg{
+    height: 135px;
+    width: 75px;
+    margin: 30px 4px 31px 4px;
+}
+
+.display-off {
+    display:none;
+}
+
+.new-game-bt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 130px;
+    height: 42px;
+    background: linear-gradient(0deg, var(--cinza-escuro) 0%, var(--cinza-medio) 100%);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-game-bt:hover{
+    background: linear-gradient(0deg, var(--cinza-escuro) 0%, var(--cinza-medio) 80%);
+}
+
+.new-game-bt:active{
+    transform: translateY(2px);
+}
+
+.new-game-bt img{
+    margin-right: 5px;
+}
+
+.new-game-bt p{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--branco);
+    font-size: 12px;
+}
+
+.new-game-bt-hidden{
+    visibility: hidden;
+}
+
+.guess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 78px;
+}
+
+.guess input{
+    font-size: 12px;
+    width: 217px;
+    height: 42px;
+    border-radius: 4px;
+    border: 1px solid var(--cinza);
+    padding: 0 12px;
+    margin-right: 11px;
+    background-color: #F5F5F5;
+}
+
+.guess input::placeholder{
+    color: var(--cinza-medio);
+}
+
+.guess input::placeholder{
+    color: var(--cinza-medio);
+    font-size: 12px;
+}
+
+.guess input:focus{
+    outline-width: 1px;
+    outline-color: #FF6600;
+}
+
+.guess button{
+    height: 42px;
+    width: 70px;
+    background: linear-gradient(0deg, var(--laranja-escuro) 0%, var(--laranja) 100%);
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--branco);
+    font-weight: bold;
+    cursor: pointer; 
+}
+
+.guess button:hover{
+    background: linear-gradient(0deg, var(--laranja-escuro) 0%, var(--laranja) 70%);
+}
+
+.guess button:active{
+    transform: translateY(2px);
+}
+
+.guess button:disabled{
+    background: #DDDDDD;
+    cursor: default; 
+}
+
+/* Tratando a responsividade */
+@media (max-width: 600px){
+
+    .container{
+        width: 365px;
+        height: 588px;
+    }
+
+    .container header h1{
+        font-size: 24px;
+        margin-top: 62px;
+    }
+
+    .container header h1::after{
+        width: 205px;
+        margin: 12px auto;
+    }
+
+    .display svg{
+        height: 100px;
+        width: 56px;
+        margin: 30px 4px 56px 4px;
+        /* background-color: #32BF00; */
+    }
+
+    .message{
+        margin-top: 92px;
+    }
+}
